@@ -486,7 +486,7 @@ dispatcher.onGet('/file/down', (req, res) => {
 });
 
 dispatcher.onGet('/filelist', (req, res) => {
-	   var ff = path.join(__dirname,"complete");
+	   var ff = path.join(__dirname,"captures");
 		var files=fs.readdirSync(ff);
         var paths=[];
         var json={};		
