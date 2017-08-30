@@ -1,5 +1,5 @@
 captureDirectory: ./captures
-completeDirectory: ./complete
+completeDirectory: ./captures
 modelScanInterval: 30
 createModelDirectory: true
 dateFormat: YYYYMMDD-HHmmss
