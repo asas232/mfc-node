@@ -446,7 +446,7 @@ dispatcher.onGet('/', (req, res) => {
 });
 
 dispatcher.onGet('/file', (req, res) => {
-  var file = path.join(__dirname+"/captures/", 'a.txt');
+  var file = path.join(__dirname+"/converted/", 'a.txt');
 
   var filename = path.basename(file);  
   var mimetype = mime.lookup(file);        //匹配文件格式  
@@ -469,7 +469,7 @@ dispatcher.onGet('/file/down', (req, res) => {
   console.log(rdata);
   var name=rdata['name']
    console.log(name);
-  var file = path.join(__dirname+"/complete/", name);
+  var file = path.join(__dirname+"/converted/", name);
   var filename = path.basename(file);  
   var mimetype = mime.lookup(file);        //匹配文件格式  
   
