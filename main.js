@@ -247,7 +247,7 @@ function createFfmpegCaptureProcess(myModel) {
         var stoppedModel = _.findWhere(capturingModels, { captureProcess: captureProcess });
 
         if (!_.isUndefined(stoppedModel)) {
-          remove(stoppedModel, capturingModels);
+          //remove(stoppedModel, capturingModels);
         }
 
         fs.statAsync(path.join(captureDirectory, filename))
@@ -257,17 +257,17 @@ function createFfmpegCaptureProcess(myModel) {
                 // do nothing, shit happens
               });
             } else if (config.createModelDirectory) {
-              mv(path.join(captureDirectory, filename), path.join(completeDirectory, myModel.dir_nm, filename), { mkdirp: true }, err => {
+              /*mv(path.join(captureDirectory, filename), path.join(completeDirectory, myModel.dir_nm, filename), { mkdirp: true }, err => {
                 if (err) {
                   printErrorMsg('[' + colors.green(myModel.nm) + '] ' + err.toString());
                 }
-              });
+              });*/
             } else {
-              mv(path.join(captureDirectory, filename), path.join(completeDirectory, filename), err => {
+              /*mv(path.join(captureDirectory, filename), path.join(completeDirectory, filename), err => {
                 if (err) {
                   printErrorMsg('[' + colors.green(myModel.nm) + '] ' + err.toString());
                 }
-              });
+              });*/
             }
           })
           .catch(err => {
@@ -662,4 +662,3 @@ http.createServer((req, res) => {
 process.on('uncaughtException', function (err) { 
   console.log('Caught exception: ' + err); 
 });
-
