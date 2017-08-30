@@ -469,7 +469,7 @@ dispatcher.onGet('/file/down', (req, res) => {
   console.log(rdata);
   var name=rdata['name']
    console.log(name);
-  var file = path.join(__dirname+"/captures/", name);
+  var file = path.join(__dirname+"/complete/", name);
   var filename = path.basename(file);  
   var mimetype = mime.lookup(file);        //匹配文件格式  
   
@@ -486,7 +486,7 @@ dispatcher.onGet('/file/down', (req, res) => {
 });
 
 dispatcher.onGet('/filelist', (req, res) => {
-	   var ff = path.join(__dirname,"captures");
+	   var ff = path.join(__dirname,"complete");
 		var files=fs.readdirSync(ff);
         var paths=[];
         var json={};		
