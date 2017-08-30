@@ -463,7 +463,7 @@ dispatcher.onGet('/file', (req, res) => {
   });  
 });
 
-dispatcher.onGet('/file/down', (req, res) => {
+dispatcher.onGet('/captures/down', (req, res) => {
 	console.log(req.url);
   var rdata  =  url.parse(req.url,true).query;   //获取参数
   console.log(rdata);
@@ -485,8 +485,100 @@ dispatcher.onGet('/file/down', (req, res) => {
   });  
 });
 
-dispatcher.onGet('/filelist', (req, res) => {
+dispatcher.onGet('/captures', (req, res) => {
 	   var ff = path.join(__dirname,"captures");
+		var files=fs.readdirSync(ff);
+        var paths=[];
+        var json={};		
+		for(var fn in files)  
+		{  
+			var fname = ff+path.sep+files[fn];  
+			var stat = fs.lstatSync(fname);  
+			if(stat.isDirectory() == true)  
+			{  
+				ls(fname);  
+			}  
+			else  
+			{  
+		         paths.push(fname);
+				console.log(fname);  
+			}  
+		}  
+		json["filename"]=paths;
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(paths), 'utf-8');
+});
+
+dispatcher.onGet('/complete/down', (req, res) => {
+	console.log(req.url);
+  var rdata  =  url.parse(req.url,true).query;   //获取参数
+  console.log(rdata);
+  var name=rdata['name']
+   console.log(name);
+  var file = path.join(__dirname+"/complete/", name);
+  var filename = path.basename(file);  
+  var mimetype = mime.lookup(file);        //匹配文件格式  
+  
+  res.setHeader('Content-disposition', 'attachment; filename=' + filename);  
+  res.setHeader('Content-type', mimetype);  
+  
+  var filestream = fs.createReadStream(file);  
+  filestream.on('data', function(chunk) {  
+    res.write(chunk);  
+  });  
+  filestream.on('end', function() {  
+    res.end();  
+  });  
+});
+
+dispatcher.onGet('/complete', (req, res) => {
+	   var ff = path.join(__dirname,"complete");
+		var files=fs.readdirSync(ff);
+        var paths=[];
+        var json={};		
+		for(var fn in files)  
+		{  
+			var fname = ff+path.sep+files[fn];  
+			var stat = fs.lstatSync(fname);  
+			if(stat.isDirectory() == true)  
+			{  
+				ls(fname);  
+			}  
+			else  
+			{  
+		         paths.push(fname);
+				console.log(fname);  
+			}  
+		}  
+		json["filename"]=paths;
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(paths), 'utf-8');
+});
+
+dispatcher.onGet('/converted/down', (req, res) => {
+	console.log(req.url);
+  var rdata  =  url.parse(req.url,true).query;   //获取参数
+  console.log(rdata);
+  var name=rdata['name']
+   console.log(name);
+  var file = path.join(__dirname+"/converted/", name);
+  var filename = path.basename(file);  
+  var mimetype = mime.lookup(file);        //匹配文件格式  
+  
+  res.setHeader('Content-disposition', 'attachment; filename=' + filename);  
+  res.setHeader('Content-type', mimetype);  
+  
+  var filestream = fs.createReadStream(file);  
+  filestream.on('data', function(chunk) {  
+    res.write(chunk);  
+  });  
+  filestream.on('end', function() {  
+    res.end();  
+  });  
+});
+
+dispatcher.onGet('/converted', (req, res) => {
+	   var ff = path.join(__dirname,"converted");
 		var files=fs.readdirSync(ff);
         var paths=[];
         var json={};		
@@ -563,7 +655,7 @@ dispatcher.onError((req, res) => {
 
 http.createServer((req, res) => {
   dispatcher.dispatch(req, res);
-}).listen(process.env.PORT ||config.port, () => {
+}).listen(config.port, () => {
   printMsg('Server listening on: ' + colors.green('0.0.0.0:' + config.port));
 });
 
