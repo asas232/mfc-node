@@ -656,6 +656,10 @@ dispatcher.onError((req, res) => {
 http.createServer((req, res) => {
   dispatcher.dispatch(req, res);
 }).listen(config.port, () => {
+  if (process.env.DYNO) {
+    console.log('This is on Heroku..!!');
+    fs.openSync('/tmp/app-initialized', 'w');
+  }
   printMsg('Server listening on: ' + colors.green('0.0.0.0:' + config.port));
 });
 
