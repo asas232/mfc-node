@@ -28,6 +28,7 @@
     "mv": "^2.1.1",
     "promise-queue": "^2.2.3",
     "string": "^3.1.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "pm2": "^0.15.10"
   }
 }
