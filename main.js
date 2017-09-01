@@ -655,7 +655,7 @@ dispatcher.onError((req, res) => {
 
 http.createServer((req, res) => {
   dispatcher.dispatch(req, res);
-}).listen(process.env.PORT ||config.port, () => {
+}).listen(config.port, () => {
   printMsg('Server listening on: ' + colors.green('0.0.0.0:' + config.port));
 });
 
