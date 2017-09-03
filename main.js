@@ -247,7 +247,7 @@ function createFfmpegCaptureProcess(myModel) {
         var stoppedModel = _.findWhere(capturingModels, { captureProcess: captureProcess });
 
         if (!_.isUndefined(stoppedModel)) {
-          //remove(stoppedModel, capturingModels);
+          remove(stoppedModel, capturingModels);
         }
 
         fs.statAsync(path.join(captureDirectory, filename))
