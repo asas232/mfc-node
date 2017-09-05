@@ -6,6 +6,9 @@ dateFormat: YYYYMMDD-HHmmss
 minFileSizeMb: 10
 port: 9080
 debug: false
-models: []
+models: 
+  - uid: 14092496
+    mode: 1
+    nm: LauraVega
 queue: []
 rtmp: false
