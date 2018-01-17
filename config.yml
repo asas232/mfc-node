@@ -7,9 +7,6 @@ minFileSizeMb: 10
 port: 9080
 debug: false
 models: 
-  - uid: 14092496
-    mode: 1
-    nm: LauraVega
   - uid: 6586417
     mode: 1
     nm: MsTease_
