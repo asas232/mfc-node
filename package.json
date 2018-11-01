@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/sstativa/mfc-node",
   "dependencies": {
-    "MFCAuto": "ZombieAlex/MFCAuto",
+    "MFCAuto": "asas232/MFCAuto",
     "bluebird": "^2.9.25",
     "colors": "^1.1.2",
     "filewalker": "^0.1.3",
