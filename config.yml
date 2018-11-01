@@ -14,4 +14,4 @@ models:
     mode: 1
     nm: 
 queue: []
-rtmp: false
+rtmp: true
