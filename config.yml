@@ -5,13 +5,10 @@ createModelDirectory: true
 dateFormat: YYYYMMDD-HHmmss
 minFileSizeMb: 10
 port: 9080
-debug: true
+debug: false
 models: 
-  - uid: 6586417
-    mode: 1
-    nm: MsTease_
   - uid: 14110474
     mode: 1
     nm: 
 queue: []
-rtmp: true
+rtmp: false
