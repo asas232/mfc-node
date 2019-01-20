@@ -9,9 +9,12 @@ debug: false
 models: 
   - uid: 14110474
     mode: 1
-    nm: 
+    nm: RavenAzarath
   - uid: 6586417
     mode: 1
     nm: MsTease_
+  - uid: 5861832
+    mode: 1
+    nm: NinjaInPyjama
 queue: []
 rtmp: false
