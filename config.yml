@@ -13,8 +13,5 @@ models:
   - uid: 6586417
     mode: 1
     nm: MsTease_
-  - uid: 5861832
-    mode: 1
-    nm: NinjaInPyjama
 queue: []
 rtmp: false
