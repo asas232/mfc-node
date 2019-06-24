@@ -418,7 +418,7 @@ function mainLoop() {
 }
 
 var mfcClient = new mfc.Client('guest', 'guest', true);
-
+printMsg("----"+mfcClient)
 Promise
   .try(() => mfcClient.connectAndWaitForModels())
   .timeout(120000) // 2 mins
