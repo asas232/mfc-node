@@ -20,7 +20,7 @@ var url = require('url');
 
 
 
-// mfc.setLogLevel(5);
+mfc.setLogLevel(1);
 
 var onlineModels = []; // the list of models from myfreecams.com
 var capturingModels = []; // the list of currently capturing models
