@@ -20,7 +20,7 @@ var url = require('url');
 
 
 
-mfc.setLogLevel(1);
+//mfc.setLogLevel(1);
 
 var onlineModels = []; // the list of models from myfreecams.com
 var capturingModels = []; // the list of currently capturing models
@@ -419,19 +419,19 @@ function mainLoop() {
 
 var mfcClient = new mfc.Client('guest', 'guest', true);
 
-Promise
-  .try(() => mfcClient.connectAndWaitForModels())
-  .timeout(120000) // 2 mins
-  .then(() => {
-    mkdir(captureDirectory);
-    mkdir(completeDirectory);
+// Promise
+//   .try(() => mfcClient.connectAndWaitForModels())
+//   .timeout(120000) // 2 mins
+//   .then(() => {
+//     mkdir(captureDirectory);
+//     mkdir(completeDirectory);
 
-    mainLoop();
-  })
-  .catch(err => {
-    printErrorMsg(err.toString());
-    process.exit(1);
-  });
+//     mainLoop();
+//   })
+//   .catch(err => {
+//     printErrorMsg(err.toString());
+//     process.exit(1);
+//   });
 
 dispatcher.onGet('/', (req, res) => {
   fs.readFile(path.join(__dirname, 'index.html'), (err, data) => {
