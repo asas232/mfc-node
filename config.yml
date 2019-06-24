@@ -5,7 +5,7 @@ createModelDirectory: true
 dateFormat: YYYYMMDD-HHmmss
 minFileSizeMb: 10
 port: 9080
-debug: false
+debug: true
 models: 
   - uid: 14110474
     mode: 1
